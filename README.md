@@ -1,29 +1,33 @@
 guriddo-formatfactory
 =====================
-Guriddo FormatFactory is a FormatFactory that is made for SlickGrid.
+Guriddo FormatFactory is a FormatFactory that is made for SlickGrid. The intention is to make it simpler to change the cell output. Gurrido Formatters are a set of convenient formatters for your SlickGrid application.
+
+### When should you not use Guriddo FormatFactory
+
+While Guriddo FormatFactory does format for you, it is not tested on cases where editing for the SlickGrid spreadsheet is involved.
 
 ### Getting started
 
 Load gurrido-formatfactory:
 
-```
+```html
   <script src="guriddo-formatfactory.min.js"></script>
 ```
 
 You have to specify formatterFactory in your SlickGrid options:
 
-```
+```javascript
   var options = {
   	enableColumnReorder: false,
 		defaultColumnWidth: 300,
 		formatterFactory: Guriddo.FormatterFactory
 	};
-  
+
 ```
 
 ### Some code
 
-```
+```javascript
   var columns = [{
 		id: "unixTimeStamp",
 		name: "Unix Time Stamp",
@@ -49,13 +53,13 @@ You have to specify formatterFactory in your SlickGrid options:
 		formatLibrary: "moment",
 		formatTo: "YYYY-MM-DD"
 	}];
-  
+
   var options = {
 		enableColumnReorder: false,
 		defaultColumnWidth: 300,
 		formatterFactory: Guriddo.FormatterFactory
 	};
-  
+
   var data = [];
 	for (var i = 0; i < 500; i++) {
 		data[i] = {
@@ -80,5 +84,6 @@ Currently, the only valid formatTo in Guriddo is 'Raw'. It just doesn't escape H
 
 ### More information
 
+* SlickGrid: https://github.com/mleibman/SlickGrid
 * Moment.js: http://momentjs.com/docs/#/parsing/
 * Numeral.js: http://numeraljs.com/
