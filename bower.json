@@ -1,8 +1,10 @@
 {
   "name": "guriddo-formatfactory",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "main": "guriddo-formatfactory.js",
   "ignore": [
     "**/.*",
+    "examples",
     "node_modules",
     "bower_components",
     "test",
