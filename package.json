@@ -1,11 +1,33 @@
 {
-  "name": "guriddo-formatfactory",
-  "version": "0.1.0",
-  "dependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-coffee": "~0.7.0",
-    "grunt-contrib-jshint": "~0.6.2",
-    "grunt-contrib-watch": "~0.5.1",
-    "grunt-contrib-uglify": "~0.2.2"
-  }
+	"name": "guriddo-formatfactory",
+	"version": "1.0.0",
+	"author": "KahWee Teng <t@kw.sg>",
+	"description": "FormatFactory for SlickGrid that supports moment and numeral",
+	"contributors": [{
+		"name": "KahWee Teng",
+		"email": "t@kw.sg"
+	}],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kahwee/guriddo-formatfactory.git"
+	},
+	"keywords": [
+		"slickgrid",
+		"spreadsheet",
+		"numeral",
+		"guriddo",
+		"formatter",
+		"moment"
+	],
+	"dependencies": {
+		"grunt": "~0.4.1",
+		"grunt-contrib-coffee": "~0.7.x",
+		"grunt-contrib-jshint": "~0.6.x",
+		"grunt-contrib-watch": "~0.5.x",
+		"grunt-contrib-uglify": "~0.2.x"
+	},
+	"license": "MIT",
+	"engines": {
+		"node": ">=0.10"
+	}
 }
