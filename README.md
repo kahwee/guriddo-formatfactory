@@ -1,6 +1,6 @@
 guriddo-formatfactory
 =====================
-Guriddo FormatFactory is a FormatFactory that is made for SlickGrid. The intention is to make it simpler to change the cell output. Gurrido Formatters are a set of convenient formatters for your SlickGrid application.
+Guriddo FormatFactory is a FormatFactory that is made for Michael Leibman's [SlickGrid](https://github.com/mleibman/SlickGrid). The intention is to make it simpler to change the cell output. Gurrido Formatters are a set of convenient formatters for your SlickGrid application.
 
 ### Prerequisites
 
