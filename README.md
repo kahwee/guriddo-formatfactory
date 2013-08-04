@@ -31,7 +31,7 @@ var options = {
 
 ```
 
-### Some code
+### Sample code
 
 ```javascript
 var columns = [{
@@ -75,6 +75,8 @@ for (var i = 0; i < 500; i++) {
 
 grid = new Slick.Grid("#test-grid", data, columns, options);
 ```
+
+You can also learn more through reading the examples in `./examples`.
 
 ### Format definitions
 
