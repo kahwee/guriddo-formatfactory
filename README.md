@@ -2,6 +2,12 @@ guriddo-formatfactory
 =====================
 Guriddo FormatFactory is a FormatFactory that is made for SlickGrid. The intention is to make it simpler to change the cell output. Gurrido Formatters are a set of convenient formatters for your SlickGrid application.
 
+### Prerequisites
+
+* SlickGrid 2.1 (Latest in GitHub)
+* Moment.js (only required if you specified column formatLibrary 'moment')
+* Numeral.js (only required if you specified column formatLibrary 'numeral')
+
 ### When should you not use Guriddo FormatFactory
 
 While Guriddo FormatFactory does format for you, it is not tested on cases where editing for the SlickGrid spreadsheet is involved.
@@ -28,7 +34,6 @@ var options = {
 	defaultColumnWidth: 300,
 	formatterFactory: Guriddo.FormatterFactory
 };
-
 ```
 
 ### Sample code
@@ -91,6 +96,10 @@ Each column has additional keys you can use to customize your format output.
 Currently, the only valid formatTo in Guriddo is 'Raw'. It just doesn't escape HTML for you.
 
 ### More information
+
+Guriddo FormatFactory is written specifically for the latest version of SlickGrid. It is written in CoffeeScript, the build process is committed as well.
+
+Uses the following libraries.
 
 * SlickGrid: https://github.com/mleibman/SlickGrid
 * Moment.js: http://momentjs.com/docs/#/parsing/
