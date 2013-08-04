@@ -5,6 +5,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     coffee: {
       options: {
+        sourceMap: true,
         join: true
       },
       files: {
@@ -23,6 +24,9 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
+        report: false,
+        sourceMap: '<%= pkg.name %>.min.js.map',
+        sourceMapIn: ['<%= pkg.name %>.js.map'],
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
