@@ -11,7 +11,7 @@
 		"tests"
 	],
 	"dependencies": {
-		"slickgrid": "b96dea6840d2da1e68728bbf649279946f7ce467",
+		"slickgrid": "master",
 		"jquery": ">=1.10.2"
 	},
 	"devDependencies": {
