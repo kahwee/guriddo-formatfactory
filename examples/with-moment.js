@@ -1,29 +1,39 @@
 (function() {
+	"use strict";
+
 	var grid;
 	var columns = [{
 		id: "unixTimeStamp",
 		name: "Unix Time Stamp",
 		field: "unixTimeStamp",
-		formatLibrary: "guriddo",
-		formatTo: 'Raw'
+		format: {
+			type: 'guriddo',
+			to: 'Raw'
+		}
 	}, {
 		id: "unixTimeStamp",
 		name: "Unix YYYYMMDD",
 		field: "unixTimeStamp",
-		formatLibrary: "moment",
-		formatTo: "YYYYMMDD"
+		format: {
+			type: 'datetime',
+			to: 'YYYYMMDD'
+		}
 	}, {
 		id: "unixTimeStamp",
 		name: "YYYY-MM-DD HH:mm Z",
 		field: "unixTimeStamp",
-		formatLibrary: "moment",
-		formatTo: "YYYY-MM-DD HH:mm Z"
+		format: {
+			type: 'datetime',
+			to: 'YYYY-MM-DD HH:mm Z'
+		}
 	}, {
 		id: "unixTimeStamp",
 		name: "YYYY-MM-DD",
 		field: "unixTimeStamp",
-		formatLibrary: "moment",
-		formatTo: "YYYY-MM-DD"
+		format: {
+			type: 'datetime',
+			to: 'YYYY-MM-DD'
+		}
 	}];
 
 	var options = {
@@ -35,7 +45,7 @@
 	var data = [];
 	for (var i = 0; i < 500; i++) {
 		data[i] = {
-			unixTimeStamp: Math.round(Math.random() * 1000) * 1000000000
+			unixTimeStamp: Math.round(Math.random() * 1000) * 1000000
 		};
 	}
 
