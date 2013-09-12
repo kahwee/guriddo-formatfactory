@@ -35,7 +35,12 @@ $.extend(true, window, {
 				value = if typeof value is "string" then value else value.toString()
 				formatFrom = if columnDef.format.from? then columnDef.format.from else '0'
 				formatTo = if columnDef.format.to? then columnDef.format.to else '0.00'
-				return numeral(value, formatFrom).format(formatTo)
+				numeralObj = numeral(value, formatFrom);
+				if columnDef.format.divide?
+					numeralObj = numeralObj.divide(columnDef.format.divide)
+				else if columnDef.format.multiply?
+					numeralObj = numeralObj.multiply(columnDef.format.multiply)
+				return numeralObj.format(formatTo)
 			"YesNo": (row, cell, value, columnDef, dataContext) ->
 				if value
 					return "Yes"
