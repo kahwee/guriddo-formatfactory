@@ -5,7 +5,6 @@
     function FormatterFactory() {}
 
     FormatterFactory.getFormatter = function(column) {
-      console.log(column);
       if (column.format == null) {
         return Guriddo.Formatters.Raw;
       }

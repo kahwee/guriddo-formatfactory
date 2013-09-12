@@ -1,6 +1,5 @@
 class FormatterFactory
 	@getFormatter: (column) ->
-		console.log column
 		if not column.format?
 			return Guriddo.Formatters.Raw
 		if not column.format.to?
