@@ -5,16 +5,19 @@
     function FormatterFactory() {}
 
     FormatterFactory.getFormatter = function(column) {
-      if (column.formatTo == null) {
+      if (column.format == null) {
         return Guriddo.Formatters.Raw;
-      } else if (column.formatLibrary === 'guriddo') {
-        return Guriddo.Formatters[column.formatTo];
-      } else if (column.formatLibrary === 'moment') {
+      }
+      if (column.format.to == null) {
+        return Guriddo.Formatters.Raw;
+      } else if (column.format.type === 'guriddo') {
+        return Guriddo.Formatters[column.format.to];
+      } else if (column.format.type === 'datetime') {
         if (typeof moment === "undefined" || moment === null) {
           throw "Guriddo FormatterFactory cannot locate the moment module";
         }
         return Guriddo.Formatters.Moment;
-      } else if (column.formatLibrary === 'numeral') {
+      } else if (column.format.type === 'number') {
         if (typeof numeral === "undefined" || numeral === null) {
           throw "Guriddo FormatterFactory cannot locate the numeral module";
         }
@@ -39,15 +42,15 @@
         "Moment": function(row, cell, value, columnDef, dataContext) {
           var formatFrom, formatTo;
           value = typeof value === "string" ? value : value.toString();
-          formatFrom = columnDef.formatFrom != null ? columnDef.formatFrom : 'X';
-          formatTo = columnDef.formatTo != null ? columnDef.formatTo : 'YYYY-MM-DD';
+          formatFrom = columnDef.format.from != null ? columnDef.format.from : 'X';
+          formatTo = columnDef.format.to != null ? columnDef.format.to : 'YYYY-MM-DD';
           return moment(value, formatFrom).format(formatTo);
         },
         "Numeral": function(row, cell, value, columnDef, dataContext) {
           var formatFrom, formatTo;
           value = typeof value === "string" ? value : value.toString();
-          formatFrom = columnDef.formatFrom != null ? columnDef.formatFrom : '0';
-          formatTo = columnDef.formatTo != null ? columnDef.formatTo : '0.00';
+          formatFrom = columnDef.format.from != null ? columnDef.format.from : '0';
+          formatTo = columnDef.format.to != null ? columnDef.format.to : '0.00';
           return numeral(value, formatFrom).format(formatTo);
         },
         "YesNo": function(row, cell, value, columnDef, dataContext) {

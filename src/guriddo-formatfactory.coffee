@@ -1,15 +1,17 @@
 class FormatterFactory
 	@getFormatter: (column) ->
-		if not column.formatTo?
+		if not column.format?
 			return Guriddo.Formatters.Raw
-		else if column.formatLibrary is 'guriddo'
-			return Guriddo.Formatters[column.formatTo]
-		else if column.formatLibrary is 'moment'
+		if not column.format.to?
+			return Guriddo.Formatters.Raw
+		else if column.format.type is 'guriddo'
+			return Guriddo.Formatters[column.format.to]
+		else if column.format.type is 'datetime'
 			# Uses the moment() library
 			if not moment?
 				throw "Guriddo FormatterFactory cannot locate the moment module"
 			return Guriddo.Formatters.Moment
-		else if column.formatLibrary is 'numeral'
+		else if column.format.type is 'number'
 			# Uses the numeral() library
 			if not numeral?
 				throw "Guriddo FormatterFactory cannot locate the numeral module"
@@ -26,13 +28,13 @@ $.extend(true, window, {
 				return value
 			"Moment": (row, cell, value, columnDef, dataContext) ->
 				value = if typeof value is "string" then value else value.toString()
-				formatFrom = if columnDef.formatFrom? then columnDef.formatFrom else 'X'
-				formatTo = if columnDef.formatTo? then columnDef.formatTo else 'YYYY-MM-DD'
+				formatFrom = if columnDef.format.from? then columnDef.format.from else 'X'
+				formatTo = if columnDef.format.to? then columnDef.format.to else 'YYYY-MM-DD'
 				return moment(value, formatFrom).format(formatTo)
 			"Numeral": (row, cell, value, columnDef, dataContext) ->
 				value = if typeof value is "string" then value else value.toString()
-				formatFrom = if columnDef.formatFrom? then columnDef.formatFrom else '0'
-				formatTo = if columnDef.formatTo? then columnDef.formatTo else '0.00'
+				formatFrom = if columnDef.format.from? then columnDef.format.from else '0'
+				formatTo = if columnDef.format.to? then columnDef.format.to else '0.00'
 				return numeral(value, formatFrom).format(formatTo)
 			"YesNo": (row, cell, value, columnDef, dataContext) ->
 				if value
