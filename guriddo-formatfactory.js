@@ -17,7 +17,12 @@
           throw "Guriddo FormatterFactory cannot locate the moment module";
         }
         return Guriddo.Formatters.Moment;
-      } else if (column.format.type === 'number') {
+      } else if (column.format.type === 'template') {
+        if (typeof Handlebars === "undefined" || Handlebars === null) {
+          throw "Guriddo FormatterFactory cannot locate the Handlebars module";
+        }
+        return Guriddo.Formatters.Handlebars;
+      } else if (column.format.type === 'number' || column.format.type === 'duration') {
         if (typeof numeral === "undefined" || numeral === null) {
           throw "Guriddo FormatterFactory cannot locate the numeral module";
         }
@@ -45,6 +50,13 @@
           formatFrom = columnDef.format.from != null ? columnDef.format.from : 'X';
           formatTo = columnDef.format.to != null ? columnDef.format.to : 'YYYY-MM-DD';
           return moment(value, formatFrom).format(formatTo);
+        },
+        "Handlebars": function(row, cell, value, columnDef, dataContext) {
+          var formatTo;
+          value = typeof value === "string" ? value : value.toString();
+          formatTo = columnDef.format.to;
+          console.log(formatTo, dataContext);
+          return Handlebars.compile(formatTo)(dataContext);
         },
         "Numeral": function(row, cell, value, columnDef, dataContext) {
           var formatFrom, formatTo, numeralObj;

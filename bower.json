@@ -1,22 +1,23 @@
 {
-	"name": "guriddo-formatfactory",
-	"version": "1.0.0",
-	"main": "guriddo-formatfactory.js",
-	"ignore": [
-		"**/.*",
-		"examples",
-		"node_modules",
-		"bower_components",
-		"test",
-		"tests"
-	],
-	"dependencies": {
-		"slickgrid": "master",
-		"jquery": ">=1.10.2"
-	},
-	"devDependencies": {
-		"lodash": "~1.3.1",
-		"moment": "~2.1.x",
-		"numeral": "~1.4.x"
-	}
+  "name": "guriddo-formatfactory",
+  "version": "1.0.0",
+  "main": "guriddo-formatfactory.js",
+  "ignore": [
+    "**/.*",
+    "examples",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "slickgrid": "master",
+    "jquery": ">=1.10.2",
+    "handlebars": "~1.0.0"
+  },
+  "devDependencies": {
+    "lodash": "~1.3.1",
+    "moment": "~2.1.x",
+    "numeral": "~1.4.x"
+  }
 }

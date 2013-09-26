@@ -11,7 +11,12 @@ class FormatterFactory
 			if not moment?
 				throw "Guriddo FormatterFactory cannot locate the moment module"
 			return Guriddo.Formatters.Moment
-		else if column.format.type is 'number'
+		else if column.format.type is 'template'
+			# Uses the Handlebars library
+			if not Handlebars?
+				throw "Guriddo FormatterFactory cannot locate the Handlebars module"
+			return Guriddo.Formatters.Handlebars
+		else if column.format.type is 'number' or column.format.type is 'duration'
 			# Uses the numeral() library
 			if not numeral?
 				throw "Guriddo FormatterFactory cannot locate the numeral module"
@@ -31,6 +36,11 @@ $.extend(true, window, {
 				formatFrom = if columnDef.format.from? then columnDef.format.from else 'X'
 				formatTo = if columnDef.format.to? then columnDef.format.to else 'YYYY-MM-DD'
 				return moment(value, formatFrom).format(formatTo)
+			"Handlebars": (row, cell, value, columnDef, dataContext) ->
+				value = if typeof value is "string" then value else value.toString()
+				formatTo = columnDef.format.to
+				console.log(formatTo, dataContext)
+				return Handlebars.compile(formatTo)(dataContext)
 			"Numeral": (row, cell, value, columnDef, dataContext) ->
 				value = if typeof value is "string" then value else value.toString()
 				formatFrom = if columnDef.format.from? then columnDef.format.from else '0'

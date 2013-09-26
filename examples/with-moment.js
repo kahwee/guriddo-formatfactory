@@ -34,6 +34,14 @@
 			type: 'datetime',
 			to: 'YYYY-MM-DD'
 		}
+	}, {
+		id: "handlebarsTest",
+		name: "handlebarsTest",
+		field: "unixTimeStamp",
+		format: {
+			type: 'template',
+			to: '{{unixTimeStamp}} {{color}}'
+		}
 	}];
 
 	var options = {
@@ -45,7 +53,8 @@
 	var data = [];
 	for (var i = 0; i < 500; i++) {
 		data[i] = {
-			unixTimeStamp: Math.round(Math.random() * 1000) * 1000000
+			unixTimeStamp: Math.round(Math.random() * 1000) * 1000000,
+			color: 'brown'
 		};
 	}
 
