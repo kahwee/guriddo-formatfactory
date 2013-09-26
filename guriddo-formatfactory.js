@@ -55,7 +55,6 @@
           var formatTo;
           value = typeof value === "string" ? value : value.toString();
           formatTo = columnDef.format.to;
-          console.log(formatTo, dataContext);
           return Handlebars.compile(formatTo)(dataContext);
         },
         "Numeral": function(row, cell, value, columnDef, dataContext) {

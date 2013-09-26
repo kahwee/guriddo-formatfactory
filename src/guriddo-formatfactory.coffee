@@ -39,7 +39,6 @@ $.extend(true, window, {
 			"Handlebars": (row, cell, value, columnDef, dataContext) ->
 				value = if typeof value is "string" then value else value.toString()
 				formatTo = columnDef.format.to
-				console.log(formatTo, dataContext)
 				return Handlebars.compile(formatTo)(dataContext)
 			"Numeral": (row, cell, value, columnDef, dataContext) ->
 				value = if typeof value is "string" then value else value.toString()

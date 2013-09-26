@@ -40,7 +40,7 @@
 		field: "unixTimeStamp",
 		format: {
 			type: 'template',
-			to: '{{unixTimeStamp}} {{color}}'
+			to: '<input type="checkbox" data-checkbox-id="{{unixTimeStamp}}">{{unixTimeStamp}}</input> {{color}}'
 		}
 	}];
 
