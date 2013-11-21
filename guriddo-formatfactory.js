@@ -47,6 +47,9 @@
         "Moment": function(row, cell, value, columnDef, dataContext) {
           var formatFrom, formatTo;
           value = typeof value === "string" ? value : value.toString();
+          if (value === "NA" || value === "") {
+            return value;
+          }
           formatFrom = columnDef.format.from != null ? columnDef.format.from : 'X';
           formatTo = columnDef.format.to != null ? columnDef.format.to : 'YYYY-MM-DD';
           return moment(value, formatFrom).format(formatTo);
@@ -54,12 +57,18 @@
         "Handlebars": function(row, cell, value, columnDef, dataContext) {
           var formatTo;
           value = typeof value === "string" ? value : value.toString();
+          if (value === "NA" || value === "") {
+            return value;
+          }
           formatTo = columnDef.format.to;
           return Handlebars.compile(formatTo)(dataContext);
         },
         "Numeral": function(row, cell, value, columnDef, dataContext) {
           var formatFrom, formatTo, numeralObj;
           value = typeof value === "string" ? value : value.toString();
+          if (value === "NA" || value === "") {
+            return value;
+          }
           formatFrom = columnDef.format.from != null ? columnDef.format.from : '0';
           formatTo = columnDef.format.to != null ? columnDef.format.to : '0.00';
           numeralObj = numeral(value, formatFrom);

@@ -33,15 +33,21 @@ $.extend(true, window, {
 				return value
 			"Moment": (row, cell, value, columnDef, dataContext) ->
 				value = if typeof value is "string" then value else value.toString()
+				if value in ["NA", ""]
+					return value
 				formatFrom = if columnDef.format.from? then columnDef.format.from else 'X'
 				formatTo = if columnDef.format.to? then columnDef.format.to else 'YYYY-MM-DD'
 				return moment(value, formatFrom).format(formatTo)
 			"Handlebars": (row, cell, value, columnDef, dataContext) ->
 				value = if typeof value is "string" then value else value.toString()
+				if value in ["NA", ""]
+					return value
 				formatTo = columnDef.format.to
 				return Handlebars.compile(formatTo)(dataContext)
 			"Numeral": (row, cell, value, columnDef, dataContext) ->
 				value = if typeof value is "string" then value else value.toString()
+				if value in ["NA", ""]
+					return value
 				formatFrom = if columnDef.format.from? then columnDef.format.from else '0'
 				formatTo = if columnDef.format.to? then columnDef.format.to else '0.00'
 				numeralObj = numeral(value, formatFrom);
