@@ -46,8 +46,10 @@
         },
         "Moment": function(row, cell, value, columnDef, dataContext) {
           var formatFrom, formatTo;
+          if (value === null) {
+            return "NA";
+          }
           value = typeof value === "string" ? value : value.toString();
-          value = value === null ? "NA" : value;
           if (value === "NA" || value === "") {
             return value;
           }
@@ -57,8 +59,10 @@
         },
         "Handlebars": function(row, cell, value, columnDef, dataContext) {
           var formatTo;
+          if (value === null) {
+            return "NA";
+          }
           value = typeof value === "string" ? value : value.toString();
-          value = value === null ? "NA" : value;
           if (value === "NA" || value === "") {
             return value;
           }
@@ -67,8 +71,10 @@
         },
         "Numeral": function(row, cell, value, columnDef, dataContext) {
           var formatFrom, formatTo, numeralObj;
+          if (value === null) {
+            return "NA";
+          }
           value = typeof value === "string" ? value : value.toString();
-          value = value === null ? "NA" : value;
           if (value === "NA" || value === "") {
             return value;
           }
