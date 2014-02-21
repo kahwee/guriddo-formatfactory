@@ -47,6 +47,7 @@
         "Moment": function(row, cell, value, columnDef, dataContext) {
           var formatFrom, formatTo;
           value = typeof value === "string" ? value : value.toString();
+          value = value === null ? "NA" : value;
           if (value === "NA" || value === "") {
             return value;
           }
@@ -57,6 +58,7 @@
         "Handlebars": function(row, cell, value, columnDef, dataContext) {
           var formatTo;
           value = typeof value === "string" ? value : value.toString();
+          value = value === null ? "NA" : value;
           if (value === "NA" || value === "") {
             return value;
           }
@@ -66,6 +68,7 @@
         "Numeral": function(row, cell, value, columnDef, dataContext) {
           var formatFrom, formatTo, numeralObj;
           value = typeof value === "string" ? value : value.toString();
+          value = value === null ? "NA" : value;
           if (value === "NA" || value === "") {
             return value;
           }

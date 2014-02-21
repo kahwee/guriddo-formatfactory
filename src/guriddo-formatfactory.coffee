@@ -33,6 +33,7 @@ $.extend(true, window, {
 				return value
 			"Moment": (row, cell, value, columnDef, dataContext) ->
 				value = if typeof value is "string" then value else value.toString()
+				value = if value == null then "NA" else value
 				if value in ["NA", ""]
 					return value
 				formatFrom = if columnDef.format.from? then columnDef.format.from else 'X'
@@ -40,12 +41,14 @@ $.extend(true, window, {
 				return moment(value, formatFrom).format(formatTo)
 			"Handlebars": (row, cell, value, columnDef, dataContext) ->
 				value = if typeof value is "string" then value else value.toString()
+				value = if value == null then "NA" else value
 				if value in ["NA", ""]
 					return value
 				formatTo = columnDef.format.to
 				return Handlebars.compile(formatTo)(dataContext)
 			"Numeral": (row, cell, value, columnDef, dataContext) ->
 				value = if typeof value is "string" then value else value.toString()
+				value = if value == null then "NA" else value
 				if value in ["NA", ""]
 					return value
 				formatFrom = if columnDef.format.from? then columnDef.format.from else '0'
