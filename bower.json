@@ -11,7 +11,7 @@
     "tests"
   ],
   "dependencies": {
-    "slickgrid": "master",
+    "slickgrid": "*",
     "jquery": "*",
     "handlebars": "*"
   },
