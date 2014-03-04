@@ -42,6 +42,9 @@
       "FormatterFactory": FormatterFactory,
       "Formatters": {
         "Raw": function(row, cell, value, columnDef, dataContext) {
+          if (value === null) {
+            return "NA";
+          }
           return value;
         },
         "Moment": function(row, cell, value, columnDef, dataContext) {
@@ -53,7 +56,7 @@
           if (value === "NA" || value === "") {
             return value;
           }
-          formatFrom = columnDef.format.from != null ? columnDef.format.from : 'X';
+          formatFrom = columnDef.format.from != null ? columnDef.format.from : '';
           formatTo = columnDef.format.to != null ? columnDef.format.to : 'YYYY-MM-DD';
           return moment(value, formatFrom).format(formatTo);
         },
