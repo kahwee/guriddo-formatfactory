@@ -52,7 +52,6 @@
           if (value === null) {
             return "NA";
           }
-          value = typeof value === "string" ? value : value.toString();
           if (value === "NA" || value === "") {
             return value;
           }

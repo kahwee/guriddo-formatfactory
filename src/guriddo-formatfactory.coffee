@@ -34,7 +34,6 @@ $.extend(true, window, {
 				value
 			"Moment": (row, cell, value, columnDef, dataContext) ->
 				return "NA" if value == null
-				value = if typeof value is "string" then value else value.toString()
 				if value in ["NA", ""]
 					return value
 				formatFrom = if columnDef.format.from? then columnDef.format.from else ''
